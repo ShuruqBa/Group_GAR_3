@@ -22,7 +22,14 @@ public class Order {
   private  double totalPrice;
   private  String status;
   private ArrayList<Piece> piece;
-  private Service service;
+  private String TypeOfService; 
+
+    public Order(Customer customer, String status, String TypeOfService) {
+        this.orderID = GenerateOrderID();
+        this.customer = customer;
+        this.status = status;
+        this.TypeOfService = TypeOfService;
+    }
 
     public int getOrderID() {
         return orderID;
@@ -92,24 +99,24 @@ public class Order {
         return piece;
     }
 
-    public Service getService() {
-        return service;
-    }
+   
 
-    
-
-    public void setService(Service service) {
-        this.service = service;
-    }
     
     public int GenerateOrderID(){
-        return 0;
+        return 10000 + (int)(Math.random() * 90000) ;
     }
     public void deletePiece(int PieceId){
         
     }
     public void addPiece(Piece Piece){
         
+    }
+     public String getTypeOfService() {
+        return TypeOfService;
+    }
+
+    public void setTypeOfService(String TypeOfService) {
+        this.TypeOfService = TypeOfService;
     }
 
     

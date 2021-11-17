@@ -38,7 +38,7 @@ public class Admin extends Person {
                 System.out.println("Order information: ");
                 System.out.println("The order ID: " + orders.get(i).getOrderID());
                 System.out.println("The order status: " + orders.get(i).getStatus());
-                System.out.println("The service type: " + orders.get(i).getService().getTypeOfService());
+                System.out.println("The service type: " + orders.get(i).getTypeOfService());
                 System.out.println("The date of order: " + orders.get(i).getDateOfOrder());
                 System.out.println("The date of delivery: " + orders.get(i).getDateOfDelivery());
                 System.out.println("The total price is: " + orders.get(i).getTotalPrice());
