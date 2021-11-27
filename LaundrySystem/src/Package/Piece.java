@@ -9,15 +9,15 @@ package Package;
  *
  * @author hp
  */
-public class Piece {
+public final class Piece {
 
     private int PieceID;
     private String pieceType;
     private double price;
     private int numberOfPieces;
 
-    public Piece(int PieceID, String pieceType, double price, int numberOfPieces) {
-        this.PieceID = PieceID;
+    public Piece(String pieceType, double price, int numberOfPieces) {
+        this.PieceID = GeneratePieceID();
         this.pieceType = pieceType;
         this.price = price;
         this.numberOfPieces = numberOfPieces;
@@ -55,7 +55,7 @@ public class Piece {
         this.PieceID = PieceID;
     }
     public int GeneratePieceID(){
-        return 0;
+        return  10000 + (int)(Math.random() * 90000) ;
     }
     
 

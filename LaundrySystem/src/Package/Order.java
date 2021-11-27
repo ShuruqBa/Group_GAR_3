@@ -12,7 +12,7 @@ import java.util.*;
  *
  * @author hp
  */
-public class Order {
+public final class Order {
 
    private int orderID;
    private Customer customer;
@@ -51,7 +51,16 @@ public class Order {
         return timeOfDelivery;
     }
 
-    public double getTotalPrice() {
+
+    public void setPiece(ArrayList<Piece> piece) {
+        this.piece = piece;
+    }
+    
+    public double getTotalPrice() { 
+        for (int i = 0; i < piece.size(); i++) {
+         totalPrice+=   piece.get(i).getPrice();
+        }
+  
         return totalPrice;
     }
 
@@ -79,9 +88,7 @@ public class Order {
         this.timeOfDelivery = timeOfDelivery;
     }
 
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
+   
 
     public void setStatus(String status) {
         this.status = status;
@@ -99,9 +106,6 @@ public class Order {
         return piece;
     }
 
-   
-
-    
     public int GenerateOrderID(){
         return 10000 + (int)(Math.random() * 90000) ;
     }
@@ -118,6 +122,7 @@ public class Order {
     public void setTypeOfService(String TypeOfService) {
         this.TypeOfService = TypeOfService;
     }
+     
 
     
     
