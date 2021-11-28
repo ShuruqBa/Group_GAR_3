@@ -61,7 +61,7 @@ public class OrderedIsFound extends javax.swing.JFrame {
         jLabel4.setText("Enter the order ID:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 240, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/backButton50.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/backButton50.png"))); // NOI18N
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
