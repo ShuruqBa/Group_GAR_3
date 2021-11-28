@@ -58,7 +58,7 @@ public final class Order {
     
     public double getTotalPrice() { 
         for (int i = 0; i < piece.size(); i++) {
-         totalPrice+=   piece.get(i).getPrice();
+         totalPrice+=   piece.get(i).getPrice()* piece.get(i).getNumberOfPieces();
         }
   
         return totalPrice;
@@ -122,7 +122,8 @@ public final class Order {
     public void setTypeOfService(String TypeOfService) {
         this.TypeOfService = TypeOfService;
     }
-     
+    
+   
 
     
     
