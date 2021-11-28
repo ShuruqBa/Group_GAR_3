@@ -55,7 +55,7 @@ public class SearchForOrder extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, 270, 40));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/logoCrystalClean.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/logoCrystalClean.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 290, 200));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -84,7 +84,7 @@ public class SearchForOrder extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 40, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/Search for order-1.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Search for order-1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 900));
 
         pack();
@@ -95,8 +95,8 @@ public class SearchForOrder extends javax.swing.JFrame {
         String Search= this.Search.getText().trim();
         boolean flag=true;
         for (int i = 0; i < Search.length(); i++) {
-            char a =Search.charAt(i);
-            if (Character.isLetter(a)) {
+           
+            if (!Character.isDigit(Search.charAt(i))) {
                   flag=false;
                   JOptionPane.showMessageDialog(null, "Enter only digits!", "Error", JOptionPane.ERROR_MESSAGE); 
                   break;

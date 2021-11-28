@@ -68,7 +68,7 @@ public class CheckoutFrame extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 810, 260, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/Checkout (2)_page-0001.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Checkout (2)_page-0001.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 900));
 
         pack();

@@ -48,7 +48,7 @@ public class StartUpPage extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 270, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/Get started page.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Get started page.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 900));
 
         pack();

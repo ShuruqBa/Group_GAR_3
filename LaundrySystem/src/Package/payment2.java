@@ -59,7 +59,7 @@ public class payment2 extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, 250, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/WhatsApp Image 2021-11-28 at 12.52.15 AM.jpeg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/OrderPlaced.jpeg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 900));
 
         pack();

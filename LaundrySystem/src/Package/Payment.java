@@ -70,7 +70,7 @@ public class Payment extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 160, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/PayementIcon.jpeg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/PayementIcon.jpeg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, 130));
 
         jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
@@ -120,7 +120,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel7.setText("The tax is");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 730, 80, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/PaymentFinal.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/PaymentFinal.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 900));
 
         pack();
