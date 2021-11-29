@@ -15,8 +15,8 @@ public class Admin extends Person {
 
     public static ArrayList<Order> orders = new ArrayList();
 
-    public Admin(String UserName, String phoneNumber, String Email, String firstName, String lastName, String passWord) {
-        super(UserName, phoneNumber, Email, firstName, lastName, passWord);
+    public Admin(String phoneNumber, String Email, String firstName, String lastName, String passWord) {
+        super(phoneNumber, Email, firstName, lastName, passWord);
     }
   
 
