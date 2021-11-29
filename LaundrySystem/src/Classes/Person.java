@@ -11,15 +11,13 @@ package Classes;
  */
 public class Person {
 
-    private String UserName;
     private String phoneNumber;
     private String Email;
     private String firstName;
     private String lastName;
     private String passWord;
 
-    public Person(String UserName, String phoneNumber, String Email, String firstName, String lastName, String passWord) {
-        this.UserName = UserName;
+    public Person(String phoneNumber, String Email, String firstName, String lastName, String passWord) {
         this.phoneNumber = phoneNumber;
         this.Email = Email;
         this.firstName = firstName;
