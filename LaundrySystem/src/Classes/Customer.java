@@ -15,9 +15,9 @@ public class Customer extends Person {
    private String address;
    private Order order;
    private ArrayList<Order> orders= new  ArrayList() ;
-    public Customer(String UserName, String phoneNumber, String Email, String firstName, String lastName, String passWord,
+    public Customer(String phoneNumber, String Email, String firstName, String lastName, String passWord,
             String address) {
-        super(UserName, phoneNumber, Email, firstName, lastName, passWord);
+        super(phoneNumber, Email, firstName, lastName, passWord);
         this.address=address;
     }
 
