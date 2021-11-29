@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 
 public class OrderDetails extends javax.swing.JFrame {
 
+    static int pricePerPc;
+    
     public OrderDetails() {
         initComponents();
         if (ChooseService.ServiceType != null) {
@@ -356,17 +358,17 @@ public class OrderDetails extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cleaningPcsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cleaningPcsStateChanged
-        int pricePerPc = (int) cleaningPcs.getValue();
+         pricePerPc = (int) cleaningPcs.getValue();
         cleanPrice.setText((pricePerPc * 30) + " SR");
     }//GEN-LAST:event_cleaningPcsStateChanged
 
     private void ironingPcsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ironingPcsStateChanged
-        int pricePerPc = (int) ironingPcs.getValue();
+         pricePerPc = (int) ironingPcs.getValue();
         ironPrice.setText((pricePerPc * 20) + " SR");
     }//GEN-LAST:event_ironingPcsStateChanged
 
     private void bothPcsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_bothPcsStateChanged
-        int pricePerPc = (int) bothPcs.getValue();
+         pricePerPc = (int) bothPcs.getValue();
         bothPrice.setText((pricePerPc * 50) + " SR");
     }//GEN-LAST:event_bothPcsStateChanged
 
@@ -381,8 +383,8 @@ public class OrderDetails extends javax.swing.JFrame {
     private void ContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinueActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        CheckoutFrame CheckoutFrame= new CheckoutFrame();
-        CheckoutFrame .setVisible(true);
+        Cart go_to_cart= new Cart();
+        go_to_cart .setVisible(true);
     }//GEN-LAST:event_ContinueActionPerformed
 
     public static void main(String args[]) {
