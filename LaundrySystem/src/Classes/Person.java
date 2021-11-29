@@ -25,10 +25,6 @@ public class Person {
         this.passWord = passWord;
     }
 
-    public String getUserName() {
-        return UserName;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -48,11 +44,7 @@ public class Person {
     public String getPassword() {
         return passWord;
     }
-
-    public void setUserName(String UserName) {
-        this.UserName = UserName;
-    }
-
+    
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
