@@ -104,7 +104,7 @@ public class SearchForOrder extends javax.swing.JFrame {
             }
                         
         }
-        if (flag) {
+        if (flag && !Search.equals("") ) {
           
              Order o = searchForOrder(Integer.parseInt(Search));
              
