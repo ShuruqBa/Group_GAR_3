@@ -77,18 +77,28 @@ public class Cart extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 35, 95, -1));
 
+        jLabel2.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 100, 139));
         jLabel2.setText("Type of services : ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 100, 139));
         jLabel3.setText("Number of pieces : ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 100, 139));
         jLabel4.setText("Total ");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 459, -1, -1));
 
+        cancelOrder.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        cancelOrder.setForeground(new java.awt.Color(102, 100, 139));
         cancelOrder.setText("Cancel order");
-        getContentPane().add(cancelOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 600, -1, -1));
+        getContentPane().add(cancelOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 610, -1, -1));
 
+        ConfirmOrder.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        ConfirmOrder.setForeground(new java.awt.Color(102, 100, 139));
         ConfirmOrder.setText("Confirm order");
         ConfirmOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,14 +108,14 @@ public class Cart extends javax.swing.JFrame {
         getContentPane().add(ConfirmOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 660, -1, -1));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 114, -1, -1));
 
-        TypeOfService.setText("jLabel6");
-        getContentPane().add(TypeOfService, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
+        TypeOfService.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        getContentPane().add(TypeOfService, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 80, 20));
 
-        NumberOfPieces.setText("jLabel6");
-        getContentPane().add(NumberOfPieces, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
+        NumberOfPieces.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        getContentPane().add(NumberOfPieces, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 80, 20));
 
-        total.setText("jLabel6");
-        getContentPane().add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 459, 145, -1));
+        total.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        getContentPane().add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 459, 150, 30));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Cart.png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 900));
