@@ -51,7 +51,7 @@ public final class Order {
         return timeOfDelivery;
     }
 
-    public void setPiece(Piece piece) {
+    public void addPiece(Piece piece) {
         pieces.add(piece);
     }
 
