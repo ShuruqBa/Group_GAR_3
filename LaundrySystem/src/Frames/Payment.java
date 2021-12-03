@@ -2,6 +2,8 @@ package Frames;
 
 import javax.swing.ButtonGroup;
 import Classes.*;
+
+import static Classes.LaundrySystem.addToOrder;
 import javax.swing.JFrame;
 
 public class Payment extends javax.swing.JFrame {
@@ -10,7 +12,7 @@ public class Payment extends javax.swing.JFrame {
     double delivery = 10.0;
     double finalTotal = 0.0;
     Order CurrentOrder;
-
+    
     public Payment() {
         initComponents();
         ButtonGroup PaymentMethods = new ButtonGroup();
@@ -22,8 +24,9 @@ public class Payment extends javax.swing.JFrame {
         DileveryMethods.add(PickUp);
 
     }
-
+    Checkout CheckOut = new Checkout(CurrentOrder);
     public Payment(Order order) {
+        
         initComponents();
         ButtonGroup PaymentMethods = new ButtonGroup();
         PaymentMethods.add(CardPay);
@@ -34,9 +37,19 @@ public class Payment extends javax.swing.JFrame {
         DileveryMethods.add(PickUp);
 
         CurrentOrder = order;
-
-        TotalPrice.setText(CurrentOrder.getTotalPrice() + " SR");
-
+           if (CardPay.isSelected()) {
+            CheckOut.setPayMethod("CardPay");
+        }else if(CashPay.isSelected()){
+            CheckOut.setPayMethod("CashPay");
+        }
+           if (DoorDelivery.isSelected()) {
+               
+             CheckOut.setDeliveryMethod("Door Delivery");
+        }else if(PickUp.isSelected()){
+            CheckOut.setDeliveryMethod("PickUp"); 
+        }
+       
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -127,7 +140,7 @@ public class Payment extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,16 +197,16 @@ public class Payment extends javax.swing.JFrame {
                 .addComponent(DoorDelivery)
                 .addGap(31, 31, 31)
                 .addComponent(PickUp)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         TaxLabel.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         TaxLabel.setForeground(new java.awt.Color(102, 100, 139));
-        TaxLabel.setText("The tax is 15%");
+        TaxLabel.setText("The tax is:");
 
         DeliveryLabel.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         DeliveryLabel.setForeground(new java.awt.Color(102, 100, 139));
-        DeliveryLabel.setText("The delivery price is 10 SR");
+        DeliveryLabel.setText("The delivery price is:");
 
         jLabel8.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(74, 73, 102));
@@ -283,13 +296,15 @@ public class Payment extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 825, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void PlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaceOrderActionPerformed
+        addToOrder(CurrentOrder);
+      
         new OrderPlacedPage().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_PlaceOrderActionPerformed
@@ -300,9 +315,11 @@ public class Payment extends javax.swing.JFrame {
     }//GEN-LAST:event_BackMouseClicked
 
     private void DoorDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoorDeliveryActionPerformed
-        double totalDeli = CurrentOrder.getTotalPrice() + delivery;
-        CurrentOrder.setTotalPrice(totalDeli);
-        TotalPrice.setText(totalDeli + " SR");
+     
+        
+        TotalPrice.setText( CheckOut.CalculateTotalPrice()+ " SR");
+        DeliveryLabel.setText(DeliveryLabel.getText()+" "+CheckOut.getDeliveryPrice()+" SR");
+        TaxLabel.setText(TaxLabel.getText()+" "+(CheckOut.getTax()*100)+"% SR");
     }//GEN-LAST:event_DoorDeliveryActionPerformed
 
     private void CardPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CardPayActionPerformed

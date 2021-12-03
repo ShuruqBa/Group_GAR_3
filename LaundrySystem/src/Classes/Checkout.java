@@ -16,7 +16,12 @@ public class Checkout {
     public double getDeliveryPrice() {
         return deliveryPrice;
     }
-
+    public double CalculateTotalPrice() {
+       double totalPrice= order.getTotalPrice();
+       totalPrice+=(totalPrice * getTax()) + getDeliveryPrice();
+       
+        return totalPrice;
+   }
     public void setDeliveryPrice(double deliveryPrice) {
         this.deliveryPrice = deliveryPrice;
     }
@@ -30,8 +35,10 @@ public class Checkout {
         return deliveryMethod;
     }
 
-    public Checkout(Order Order ) {
-       this.order=Order;
+    public Checkout(Order Order) {
+        this.order=Order;
+      
+      
     }
 
     public String getPayMethod() {
@@ -66,12 +73,7 @@ public class Checkout {
         this.tax = tax;
     }
 
-    //public double CalculateTotalPrice(Order Order) {
-       //double totalPrice= Order.getTotalPrice();
-       //totalPrice+=(totalPrice * getTax()) + getDeliveryPrice();
-       
-       // return totalPrice;
-    //}
+    
     
 
 }

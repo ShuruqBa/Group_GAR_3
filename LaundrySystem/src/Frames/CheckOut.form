@@ -28,7 +28,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="822" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -196,9 +196,6 @@
             <Component class="javax.swing.JTextArea" name="AddresDetails">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Calibri" size="18" style="1"/>
@@ -207,7 +204,7 @@
                   <Color blue="99" green="6d" red="70" type="rgb"/>
                 </Property>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="&#xa;  Shorouq Baabdullah&#xa;  8663 Ibrahim Amin Foudah St.&#xa;  Ar Rawdah Dist.&#xa;  House No. 8606&#xa;  Jeddah, Saudi Arabi"/>
+                <Property name="text" type="java.lang.String" value="&#xa;"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -247,6 +244,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Calibri" size="24" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="49" red="4a" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[85, 30]"/>

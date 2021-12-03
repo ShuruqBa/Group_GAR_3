@@ -1,16 +1,20 @@
 package Frames;
 
 import Classes.*;
+import static Classes.LaundrySystem.setLaundrySystem;
 import java.awt.Color;
+import static java.time.Clock.system;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class SignUpFrame extends javax.swing.JFrame {
     
-    LaundrySystem system = new LaundrySystem();
+    LaundrySystem system = LaundrySystem.getL();
     
     public SignUpFrame() {
+        
         initComponents();
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -25,15 +29,17 @@ public class SignUpFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         EmailField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        PhoneNo = new javax.swing.JTextField();
+        PhonNum = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
         ConfirmPassField = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
-        SignUp = new javax.swing.JButton();
         errorMsg = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         LastName = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        Address = new javax.swing.JTextField();
+        SignUp = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -75,14 +81,14 @@ public class SignUpFrame extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Phone Number");
 
-        PhoneNo.setBackground(new java.awt.Color(220, 220, 255));
-        PhoneNo.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        PhoneNo.setForeground(new java.awt.Color(112, 110, 153));
-        PhoneNo.setPreferredSize(new java.awt.Dimension(286, 28));
-        PhoneNo.setSelectionColor(new java.awt.Color(112, 110, 153));
-        PhoneNo.addMouseListener(new java.awt.event.MouseAdapter() {
+        PhonNum.setBackground(new java.awt.Color(220, 220, 255));
+        PhonNum.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        PhonNum.setForeground(new java.awt.Color(112, 110, 153));
+        PhonNum.setPreferredSize(new java.awt.Dimension(286, 28));
+        PhonNum.setSelectionColor(new java.awt.Color(112, 110, 153));
+        PhonNum.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PhoneNoMouseClicked(evt);
+                PhonNumMouseClicked(evt);
             }
         });
 
@@ -116,18 +122,7 @@ public class SignUpFrame extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel6.setText("Confirm Password");
-
-        SignUp.setBackground(new java.awt.Color(102, 100, 139));
-        SignUp.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        SignUp.setForeground(new java.awt.Color(229, 229, 229));
-        SignUp.setText("Create Account");
-        SignUp.setPreferredSize(new java.awt.Dimension(250, 39));
-        SignUp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SignUpActionPerformed(evt);
-            }
-        });
+        jLabel6.setText("Address");
 
         errorMsg.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         errorMsg.setForeground(new java.awt.Color(102, 102, 102));
@@ -144,6 +139,21 @@ public class SignUpFrame extends javax.swing.JFrame {
         LastName.setPreferredSize(new java.awt.Dimension(118, 28));
         LastName.setSelectionColor(new java.awt.Color(112, 110, 153));
 
+        jLabel8.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setText("Confirm Password");
+
+        Address.setBackground(new java.awt.Color(220, 220, 255));
+        Address.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        Address.setForeground(new java.awt.Color(112, 110, 153));
+        Address.setPreferredSize(new java.awt.Dimension(286, 28));
+        Address.setSelectionColor(new java.awt.Color(112, 110, 153));
+        Address.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddressMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
@@ -152,36 +162,39 @@ public class SignUpFrame extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(MainPanelLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(errorMsg, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(MainPanelLayout.createSequentialGroup()
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(MainPanelLayout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ConfirmPassField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(EmailField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(PhoneNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(MainPanelLayout.createSequentialGroup()
-                                        .addGap(13, 13, 13)
-                                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel6)))
-                                    .addGroup(MainPanelLayout.createSequentialGroup()
-                                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(41, 41, 41)
-                                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7)
-                                            .addComponent(LastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(MainPanelLayout.createSequentialGroup()
-                                .addGap(67, 67, 67)
-                                .addComponent(SignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(errorMsg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel4)
+                            .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(ConfirmPassField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(EmailField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(PhonNum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Address, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(MainPanelLayout.createSequentialGroup()
+                                    .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(MainPanelLayout.createSequentialGroup()
+                                            .addGap(13, 13, 13)
+                                            .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel3)
+                                                .addComponent(jLabel5)))
+                                        .addGroup(MainPanelLayout.createSequentialGroup()
+                                            .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel2)
+                                                .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(41, 41, 41)
+                                            .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel7)
+                                                .addComponent(LastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addComponent(jLabel8))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         MainPanelLayout.setVerticalGroup(
@@ -203,33 +216,52 @@ public class SignUpFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PhonNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
+                .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ConfirmPassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(errorMsg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(SignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(errorMsg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
+
+        SignUp.setBackground(new java.awt.Color(102, 100, 139));
+        SignUp.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        SignUp.setForeground(new java.awt.Color(229, 229, 229));
+        SignUp.setText("Create Account");
+        SignUp.setPreferredSize(new java.awt.Dimension(250, 39));
+        SignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SignUpActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(SignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(SignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -244,7 +276,8 @@ public class SignUpFrame extends javax.swing.JFrame {
         String firstName = FirstName.getText();
         String lastName = LastName.getText();
         String email = EmailField.getText();
-        String phoneNo = PhoneNo.getText();
+        String phoneNo = PhonNum.getText();
+        String address= Address.getText();
         char[] password = passwordField.getPassword();
         char[] confirmedPass = ConfirmPassField.getPassword();
         
@@ -264,13 +297,13 @@ public class SignUpFrame extends javax.swing.JFrame {
                 } else {
                     if (phoneNoValid(phoneNo)) {
                         if (passValid(password, confirmedPass)) {
-                            Customer customer = new Customer(PhoneNo.getText(), email, firstName, lastName, new String(password), null);
+                            Customer customer = new Customer(PhonNum.getText(), email, firstName, lastName, new String(password), address);
                             system.addCustomer(customer);
                             new LoginFrame(customer, system).setVisible(true);
                             this.dispose();
                         }
                     } else {
-                        PhoneNo.setBackground(new Color(255, 153, 153));
+                        PhonNum.setBackground(new Color(255, 153, 153));
                         errorMsg.setText("phone Number is not valid!");
                     }
                 }
@@ -358,9 +391,13 @@ public class SignUpFrame extends javax.swing.JFrame {
         ConfirmPassField.setText("");
     }//GEN-LAST:event_ConfirmPassFieldMouseClicked
 
-    private void PhoneNoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PhoneNoMouseClicked
-        PhoneNo.setText("");
-    }//GEN-LAST:event_PhoneNoMouseClicked
+    private void PhonNumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PhonNumMouseClicked
+        PhonNum.setText("");
+    }//GEN-LAST:event_PhonNumMouseClicked
+
+    private void AddressMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddressMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddressMouseClicked
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -396,12 +433,13 @@ public class SignUpFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Address;
     private javax.swing.JPasswordField ConfirmPassField;
     private javax.swing.JTextField EmailField;
     private javax.swing.JTextField FirstName;
     private javax.swing.JTextField LastName;
     private javax.swing.JPanel MainPanel;
-    private javax.swing.JTextField PhoneNo;
+    private javax.swing.JTextField PhonNum;
     private javax.swing.JButton SignUp;
     private javax.swing.JLabel errorMsg;
     private javax.swing.JLabel jLabel1;
@@ -411,6 +449,7 @@ public class SignUpFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPasswordField passwordField;
     // End of variables declaration//GEN-END:variables

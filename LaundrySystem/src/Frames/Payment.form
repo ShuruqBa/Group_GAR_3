@@ -197,7 +197,7 @@
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="143" max="32767" attributes="0"/>
+                      <EmptySpace pref="142" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -321,7 +321,7 @@
                       <Component id="DoorDelivery" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="PickUp" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="32" max="32767" attributes="0"/>
+                      <EmptySpace pref="30" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -368,7 +368,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="8b" green="64" red="66" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="The tax is 15%"/>
+            <Property name="text" type="java.lang.String" value="The tax is:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="DeliveryLabel">
@@ -379,7 +379,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="8b" green="64" red="66" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="The delivery price is 10 SR"/>
+            <Property name="text" type="java.lang.String" value="The delivery price is:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">

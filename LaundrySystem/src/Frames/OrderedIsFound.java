@@ -20,15 +20,21 @@ public class OrderedIsFound extends javax.swing.JFrame {
      */
     public OrderedIsFound() {
         initComponents();
-       
-       // jLabel1.setIcon(new ImageIcon("startpage.png"));
+
+        // jLabel1.setIcon(new ImageIcon("startpage.png"));
     }
-    public void setTextID(String x){
-        jLabel4.setText(jLabel4.getText() + " "+x );
+
+    public void setTextID(String x) {
+        jLabel4.setText(jLabel4.getText() + " " + x);
     }
-    public void setTextField(String x){
+
+    public void setTextField(String x) {
         jLabel6.setText(x);
     }
+     public void setTextFieldp(String x){
+      jLabel7 .setText(x);
+     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,6 +50,7 @@ public class OrderedIsFound extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,8 +76,11 @@ public class OrderedIsFound extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 40, 40));
 
-        jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabel6.setMinimumSize(new java.awt.Dimension(50, 25));
+        jLabel6.setPreferredSize(new java.awt.Dimension(50, 25));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 320, 120));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 180, 90));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Search for order-1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 900));
@@ -132,5 +142,6 @@ public class OrderedIsFound extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

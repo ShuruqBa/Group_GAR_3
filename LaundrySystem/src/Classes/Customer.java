@@ -15,7 +15,16 @@ public class Customer extends Person {
 
     private String address;
     private ArrayList<Order> orders = new ArrayList();
+    private Checkout Checkout;
 
+    public Checkout getCheckout() {
+        return Checkout;
+    }
+
+    public void setCheckout(Checkout Checkout) {
+        this.Checkout = Checkout;
+    }
+    
     public Customer(String phoneNumber, String Email, String firstName, String lastName, String passWord,
             String address) {
         super(phoneNumber, Email, firstName, lastName, passWord);

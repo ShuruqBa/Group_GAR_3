@@ -230,7 +230,7 @@ public class LoginFrame extends javax.swing.JFrame {
         }
 
         if (EmailField.getText().toLowerCase().startsWith("admin")) {
-            this.dispose();
+            
             new AdminView().setVisible(true);
         }
     }//GEN-LAST:event_LoginActionPerformed
@@ -256,7 +256,7 @@ public class LoginFrame extends javax.swing.JFrame {
     }
 
     private void RegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterMouseClicked
-        this.dispose();
+       
         new SignUpFrame().setVisible(true);
     }//GEN-LAST:event_RegisterMouseClicked
 

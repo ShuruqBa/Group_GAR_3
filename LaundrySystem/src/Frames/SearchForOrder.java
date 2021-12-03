@@ -7,6 +7,9 @@ package Frames;
 
 import Classes.Order;
 import static Classes.Admin.*;
+import Classes.LaundrySystem;
+import static Classes.LaundrySystem.searchForOrder;
+import static Classes.LaundrySystem.setLaundrySystem;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -15,12 +18,13 @@ import javax.swing.JOptionPane;
  * @author hp
  */
 public class SearchForOrder extends javax.swing.JFrame {
-
+    LaundrySystem LaundrySystem2=LaundrySystem.getL();
     /**
      * Creates new form StartUpPage
      */
     public SearchForOrder() {
         initComponents();
+      
        // jLabel1.setIcon(new ImageIcon("startpage.png"));
     }
 
@@ -42,6 +46,7 @@ public class SearchForOrder extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(410, 820));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
@@ -86,7 +91,8 @@ public class SearchForOrder extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 40, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Search for order-1.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 900));
+        jLabel1.setPreferredSize(new java.awt.Dimension(404, 820));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -104,15 +110,22 @@ public class SearchForOrder extends javax.swing.JFrame {
             }
                         
         }
-        if (flag && !Search.equals("") ) {
+        if (flag) {
           
              Order o = searchForOrder(Integer.parseInt(Search));
              
              if (o != null) {
                  this.dispose();
-           OrderedIsFound OrderedIsFound =  new OrderedIsFound();
-                 OrderedIsFound.setTextField(o.getCustomer().getFirstName()+ " "+ o.getCustomer().getLastName()+"\n"
-                 );
+                 OrderedIsFound OrderedIsFound =  new OrderedIsFound();
+                 String[] pieces = new String[o.getPiece().size()];
+                 
+                 OrderedIsFound.setTextField(o.getCustomer().getFirstName()+ " "+ o.getCustomer().getLastName()+" \n"
+                +o.getCustomer().getPhoneNumber()+" \n"+ o.getCustomer().getAddress() );
+                 for (int i = 0; i < o.getPiece().size(); i++) {
+                     pieces[i]=o.getPiece().get(i).getPieceType();
+                 OrderedIsFound.setTextFieldp(pieces[i]+ "\n");
+                 
+                         }
                 OrderedIsFound. setTextID(o.getOrderID()+"");
                  OrderedIsFound.setVisible(true);
             }else{

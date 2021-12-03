@@ -3,19 +3,23 @@ package Frames;
 import Classes.*;
 
 public class CheckOut extends javax.swing.JFrame {
-    
+
     Order CurrentOrder;
-    
+
     public CheckOut() {
         initComponents();
     }
-    
+
     public CheckOut(Order order) {
         initComponents();
         CurrentOrder = order;
+        System.out.println(order.getOrderID());
+        AddresDetails.setText(CurrentOrder.getCustomer().getFirstName() + " " + CurrentOrder.getCustomer().getLastName());
+        AddresDetails.setText(AddresDetails.getText() + "\n" + CurrentOrder.getCustomer().getPhoneNumber());
+        AddresDetails.setText(AddresDetails.getText() + "\n" + CurrentOrder.getCustomer().getAddress());
         TotalPrice.setText(CurrentOrder.getTotalPrice() + " SR");
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -66,12 +70,11 @@ public class CheckOut extends javax.swing.JFrame {
         jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 229, 229), 4));
 
         AddresDetails.setEditable(false);
-        AddresDetails.setBackground(new java.awt.Color(255, 255, 255));
         AddresDetails.setColumns(20);
         AddresDetails.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         AddresDetails.setForeground(new java.awt.Color(112, 109, 153));
         AddresDetails.setRows(5);
-        AddresDetails.setText("\n  Shorouq Baabdullah\n  8663 Ibrahim Amin Foudah St.\n  Ar Rawdah Dist.\n  House No. 8606\n  Jeddah, Saudi Arabi");
+        AddresDetails.setText("\n");
         jScrollPane1.setViewportView(AddresDetails);
 
         PayNow.setBackground(new java.awt.Color(102, 100, 139));
@@ -90,6 +93,7 @@ public class CheckOut extends javax.swing.JFrame {
         jLabel6.setText("Total");
 
         TotalPrice.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        TotalPrice.setForeground(new java.awt.Color(74, 73, 102));
         TotalPrice.setPreferredSize(new java.awt.Dimension(85, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Logo.png"))); // NOI18N
@@ -163,7 +167,7 @@ public class CheckOut extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 822, Short.MAX_VALUE)
         );
 
         pack();
@@ -171,14 +175,14 @@ public class CheckOut extends javax.swing.JFrame {
 
     private void BackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMouseClicked
         new Cart(CurrentOrder).setVisible(true);
-        this.dispose();        
+        this.dispose();
     }//GEN-LAST:event_BackMouseClicked
 
     private void PayNowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PayNowActionPerformed
         this.dispose();
         new Payment(CurrentOrder).setVisible(true);
     }//GEN-LAST:event_PayNowActionPerformed
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -201,6 +205,9 @@ public class CheckOut extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CheckOut.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
