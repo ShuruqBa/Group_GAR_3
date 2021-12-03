@@ -24,9 +24,12 @@ public class Payment extends javax.swing.JFrame {
         DileveryMethods.add(PickUp);
 
     }
-    Checkout CheckOut = new Checkout(CurrentOrder);
+   
     public Payment(Order order) {
         
+        Checkout CheckOut = new Checkout(order);
+        order.getCustomer().setCheckout(CheckOut);
+        System.out.println(order.getOrderID());
         initComponents();
         ButtonGroup PaymentMethods = new ButtonGroup();
         PaymentMethods.add(CardPay);
@@ -48,8 +51,11 @@ public class Payment extends javax.swing.JFrame {
         }else if(PickUp.isSelected()){
             CheckOut.setDeliveryMethod("PickUp"); 
         }
+        TotalPrice.setText( CheckOut.CalculateTotalPrice()+ " SR");
+        DeliveryLabel.setText(DeliveryLabel.getText()+" "+CheckOut.getDeliveryPrice()+" SR");
+        TaxLabel.setText(TaxLabel.getText()+" "+(CheckOut.getTax()*100)+"% SR");
        
-      
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -304,7 +310,7 @@ public class Payment extends javax.swing.JFrame {
 
     private void PlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaceOrderActionPerformed
         addToOrder(CurrentOrder);
-        System.out.println(CurrentOrder.GenerateOrderID());
+      
         new OrderPlacedPage().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_PlaceOrderActionPerformed
@@ -317,9 +323,7 @@ public class Payment extends javax.swing.JFrame {
     private void DoorDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoorDeliveryActionPerformed
      
         
-        TotalPrice.setText( CheckOut.CalculateTotalPrice()+ " SR");
-        DeliveryLabel.setText(DeliveryLabel.getText()+" "+CheckOut.getDeliveryPrice()+" SR");
-        TaxLabel.setText(TaxLabel.getText()+" "+(CheckOut.getTax()*100)+"% SR");
+        
     }//GEN-LAST:event_DoorDeliveryActionPerformed
 
     private void CardPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CardPayActionPerformed

@@ -13,7 +13,6 @@ public class CheckOut extends javax.swing.JFrame {
     public CheckOut(Order order) {
         initComponents();
         CurrentOrder = order;
-        System.out.println(order.getOrderID());
         AddresDetails.setText(CurrentOrder.getCustomer().getFirstName() + " " + CurrentOrder.getCustomer().getLastName());
         AddresDetails.setText(AddresDetails.getText() + "\n" + CurrentOrder.getCustomer().getPhoneNumber());
         AddresDetails.setText(AddresDetails.getText() + "\n" + CurrentOrder.getCustomer().getAddress());

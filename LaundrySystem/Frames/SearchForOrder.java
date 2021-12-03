@@ -24,7 +24,7 @@ public class SearchForOrder extends javax.swing.JFrame {
      */
     public SearchForOrder() {
         initComponents();
-      
+    
        // jLabel1.setIcon(new ImageIcon("startpage.png"));
     }
 
@@ -117,15 +117,21 @@ public class SearchForOrder extends javax.swing.JFrame {
              if (o != null) {
                  this.dispose();
                  OrderedIsFound OrderedIsFound =  new OrderedIsFound();
-                 String[] pieces = new String[o.getPiece().size()];
+                
                  
-                 OrderedIsFound.setTextField(o.getCustomer().getFirstName()+ " "+ o.getCustomer().getLastName()+" \n"
-                +o.getCustomer().getPhoneNumber()+" \n"+ o.getCustomer().getAddress() );
+                 OrderedIsFound.setTextField("The customer name: "+o.getCustomer().getFirstName()+ " "+ o.getCustomer().getLastName()+" \n"
+                +" The customer phone: "+o.getCustomer().getPhoneNumber()+" \n"+ " The customer address: "+o.getCustomer().getAddress() );
                  for (int i = 0; i < o.getPiece().size(); i++) {
-                     pieces[i]=o.getPiece().get(i).getPieceType();
-                 OrderedIsFound.setTextFieldp(pieces[i]+ "\n");
+                     
+                 OrderedIsFound.setTextFieldp("The service: "+o.getPiece().get(i).getPieceType()+ "\n"+ 
+                         "   The price "+o.getPiece().get(i).getPrice(o.getPiece().get(i).getPieceType()));
                  
                          }
+                  OrderedIsFound.setTextFieldp(OrderedIsFound.GetTextFieldp()+ "\n"+ "Status: "+o.getStatus()+ 
+                         " Tax:  "+  (o.getCustomer().getCheckout().getTax()*100)+
+                          " Delivery: "+ o.getCustomer().getCheckout().getDeliveryPrice()+"\n"+" Total: "
+                       + o.getCustomer().getCheckout().getTotalPrice()  );
+                 
                 OrderedIsFound. setTextID(o.getOrderID()+"");
                  OrderedIsFound.setVisible(true);
             }else{
@@ -182,6 +188,7 @@ public class SearchForOrder extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SearchForOrder().setVisible(true);
+                
             }
         });
     }
