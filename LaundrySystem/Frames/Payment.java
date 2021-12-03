@@ -49,7 +49,7 @@ public class Payment extends javax.swing.JFrame {
             CheckOut.setDeliveryMethod("PickUp"); 
         }
        
-        
+      
     }
 
     @SuppressWarnings("unchecked")
@@ -304,7 +304,7 @@ public class Payment extends javax.swing.JFrame {
 
     private void PlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaceOrderActionPerformed
         addToOrder(CurrentOrder);
-      
+        System.out.println(CurrentOrder.GenerateOrderID());
         new OrderPlacedPage().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_PlaceOrderActionPerformed
