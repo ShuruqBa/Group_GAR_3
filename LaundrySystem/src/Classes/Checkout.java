@@ -66,12 +66,12 @@ public class Checkout {
         this.tax = tax;
     }
 
-    public double CalculateTotalPrice(Order Order) {
-       double totalPrice= Order.getTotalPrice();
-       totalPrice+=(totalPrice * getTax()) + getDeliveryPrice();
+    //public double CalculateTotalPrice(Order Order) {
+       //double totalPrice= Order.getTotalPrice();
+       //totalPrice+=(totalPrice * getTax()) + getDeliveryPrice();
        
-        return totalPrice;
-    }
+       // return totalPrice;
+    //}
     
 
 }
