@@ -52,7 +52,7 @@ public class Cart extends javax.swing.JFrame {
                 currentOrd = order;
             }
             currentPc = new Piece(serviceType, noOfpcs);
-            currentOrd.setPiece(currentPc);
+            currentOrd.addPiece(currentPc);
 
             String summar = "";
             ArrayList<Piece> pieces;
