@@ -198,6 +198,7 @@ public class LoginFrame extends javax.swing.JFrame {
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
         emailErrorMsg.setText("");
         passErrorMsg.setText("");
+        
         //get email and password from user
         String email = EmailField.getText();
         String password = passwordField.getText();
@@ -227,6 +228,7 @@ public class LoginFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LoginActionPerformed
 
+    // this method checks if user with that email already exists in the system
     public boolean exists(String email) {
         ArrayList<Customer> customers = System.allCustomers();
         for (int i = 0; i < customers.size(); i++) {
@@ -237,6 +239,7 @@ public class LoginFrame extends javax.swing.JFrame {
         return false;
     }
 
+    // find customer by email
     public Customer findCustomer(String email) {
         ArrayList<Customer> customers = System.allCustomers();
         for (int i = 0; i < customers.size(); i++) {
@@ -248,7 +251,7 @@ public class LoginFrame extends javax.swing.JFrame {
     }
 
     private void RegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterMouseClicked
-       
+        // in case user isn't registered in the system, take them to sign up page
         new SignUpFrame().setVisible(true);
     }//GEN-LAST:event_RegisterMouseClicked
 
