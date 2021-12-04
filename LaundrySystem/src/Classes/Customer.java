@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Classes;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author hp
- */
 public class Customer extends Person {
 
     private String address;
@@ -39,6 +31,7 @@ public class Customer extends Person {
         this.address = address;
     }
 
+    // this method is used to cancel the order from list of orders
     public boolean cancelOrder(Order order) {
 
         for (int i = 0; i < orders.size(); i++) {
@@ -51,6 +44,7 @@ public class Customer extends Person {
         return false;
     }
 
+    // this method adds order to list of orders
     public void makeOrder(Order order) {
         orders.add(order);
     }

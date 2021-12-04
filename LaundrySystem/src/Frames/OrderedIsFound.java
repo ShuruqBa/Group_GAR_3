@@ -1,27 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Frames;
 
 import static Classes.Admin.*;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author hp
- */
 public class OrderedIsFound extends javax.swing.JFrame {
 
-    /**
-     * Creates new form StartUpPage
-     */
     public OrderedIsFound() {
         initComponents();
-
-        // jLabel1.setIcon(new ImageIcon("startpage.png"));
     }
 
     public void setTextID(String x) {
@@ -32,7 +18,10 @@ public class OrderedIsFound extends javax.swing.JFrame {
         jLabel6.setText(x);
     }
      public void setTextFieldp(String x){
-      jLabel7 .setText(x);
+      jTextArea1 .setText(x);
+     }
+     public String GetTextFieldp(){
+      return jTextArea1.getText();
      }
     
 
@@ -50,7 +39,8 @@ public class OrderedIsFound extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,7 +55,7 @@ public class OrderedIsFound extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, 90));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setText("Enter the order ID:");
+        jLabel4.setText("Entered order ID:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 240, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/backButton50.png"))); // NOI18N
@@ -79,8 +69,13 @@ public class OrderedIsFound extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel6.setMinimumSize(new java.awt.Dimension(50, 25));
         jLabel6.setPreferredSize(new java.awt.Dimension(50, 25));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 320, 120));
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 180, 90));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 320, 120));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, 310, 320));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Search for order-1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 900));
@@ -142,6 +137,7 @@ public class OrderedIsFound extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

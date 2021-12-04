@@ -17,12 +17,14 @@ public class Cart extends javax.swing.JFrame {
         currentOrd = ord;
 
         String summar = "";
+        // this arrayList is used to get all pieces in current order
         ArrayList<Piece> pieces;
         String currType;
         int finalPrice = 0;
 
         pieces = currentOrd.getPiece();
 
+        // for-loop that iterates over all pieces in the current order and prints their details
         for (int j = 0; j < pieces.size(); j++) {
             currType = pieces.get(j).getPieceType();
             summar += " " + currType + "\t          " + pieces.get(j).getNumberOfPieces()
@@ -39,38 +41,42 @@ public class Cart extends javax.swing.JFrame {
     public Cart(Customer customer, String serviceType, int noOfpcs, Order order) {
         initComponents();
         Customer = customer;
-        ArrayList<Order> orders = customer.getOrders();
         Piece currentPc;
         int finalPrice = 0;
 
         if (serviceType != null) {
+            // if the current order is still not created, create new order
             if (order == null) {
                 currentOrd = new Order(customer, "Ongoing", serviceType);
+                // add order to list of customer's orders
                 Customer.makeOrder(currentOrd);
                 currentOrd.setCustomer(customer);
-            } else {
+            } // if order is not null that means more pieces are being added to current order
+            else {
                 currentOrd = order;
             }
+            // create new piece then add it to list of pieces in the order
             currentPc = new Piece(serviceType, noOfpcs);
             currentOrd.setPiece(currentPc);
 
             String summar = "";
+            // this arrayList is used to get all pieces in current order
             ArrayList<Piece> pieces;
             String currType;
-            for (int i = 0; i < orders.size(); i++) {
-                pieces = orders.get(i).getPiece();
+            pieces = currentOrd.getPiece();
+            // for-loop that iterates over all pieces in the current order and prints their details
+            for (int j = 0; j < pieces.size(); j++) {
+                currType = pieces.get(j).getPieceType();
+                summar += " " + currType + "\t          " + pieces.get(j).getNumberOfPieces()
+                        + "\t              " + (pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces()) + "\n";
 
-                for (int j = 0; j < pieces.size(); j++) {
-                    currType = pieces.get(j).getPieceType();
-                    summar += " " + currType + "\t          " + pieces.get(j).getNumberOfPieces()
-                            + "\t              " + (pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces()) + "\n";
-
-                    finalPrice += pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces();
-                }
+                finalPrice += pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces();
             }
             totalPrice.setText(finalPrice + " SR");
+            // set the calculated price of all pieces in the order 
             currentOrd.setTotalPrice(finalPrice);
 
+            // print the order summary to the user
             Summary.setText(summar);
         }
     }

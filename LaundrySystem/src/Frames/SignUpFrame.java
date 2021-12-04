@@ -281,11 +281,13 @@ public class SignUpFrame extends javax.swing.JFrame {
         char[] password = passwordField.getPassword();
         char[] confirmedPass = ConfirmPassField.getPassword();
         
+        // make sure user does not leave the name fields empty
         if (firstName.isEmpty() || lastName.isEmpty()) {
             errorMsg.setText("Please enter your first and last name");
             FirstName.setBackground(new Color(255, 153, 153));
             LastName.setBackground(new Color(255, 153, 153));
         } else {
+            // if the email the user entered is already in the system error message will be displayed
             if (exists(email)) {
                 errorMsg.setText("User with that E-mail already exists");
             } else {
@@ -295,10 +297,14 @@ public class SignUpFrame extends javax.swing.JFrame {
                     errorMsg.setText("Email is not valid!");
                     
                 } else {
+                    // check if phone number is valid, else display error message
                     if (phoneNoValid(phoneNo)) {
+                        // next, check if password is valid and that both passwords match
                         if (passValid(password, confirmedPass)) {
+                            // all entered information are valid, so new customer is created then added to the system 
                             Customer customer = new Customer(PhonNum.getText(), email, firstName, lastName, new String(password), address);
                             system.addCustomer(customer);
+                            // take customer to login page to start using the system
                             new LoginFrame(customer, system).setVisible(true);
                             this.dispose();
                         }
@@ -311,6 +317,7 @@ public class SignUpFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SignUpActionPerformed
     
+    // this method checks for passwords validity
     public boolean passValid(char[] password, char[] confirmedPass) {
         if (password.length < 8) {
             passwordField.setBackground(new Color(255, 153, 153));
@@ -329,6 +336,7 @@ public class SignUpFrame extends javax.swing.JFrame {
         return true;
     }
     
+    // this methos checks for phone number validity
     public boolean phoneNoValid(String PhoneNo) {
         if (PhoneNo.isEmpty()) {
             return false;
@@ -345,6 +353,7 @@ public class SignUpFrame extends javax.swing.JFrame {
         return true;
     }
     
+    // this method checks for passwords validity
     public boolean passwordsMatch(char[] pass1, char[] pass2) {
         // If both passwords dont have the same length, then they're not matching 
         if (pass1.length != pass2.length) {
@@ -359,6 +368,7 @@ public class SignUpFrame extends javax.swing.JFrame {
         return true;
     }
     
+    // this method checks if user with the passed email already exists
     public boolean exists(String email) {
         ArrayList<Customer> customers = system.allCustomers();
         for (int i = 0; i < customers.size(); i++) {
@@ -369,6 +379,7 @@ public class SignUpFrame extends javax.swing.JFrame {
         return false;
     }
     
+    // this method checks if email is in the correct format
     private boolean isValid(String email) {
         
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."

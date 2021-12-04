@@ -3,12 +3,7 @@ package Frames;
 
 import javax.swing.JFrame;
 
-/**
- *
- * @author macbookpro
- */
 public class OrderCanceled extends javax.swing.JFrame {
-
 
     public OrderCanceled() {
         initComponents();

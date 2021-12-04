@@ -243,11 +243,14 @@ public class ChooseService extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void WashingPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WashingPanelMouseClicked
+        
         ServiceType = "Washing";
+        // if order is null that means it wasnt created yet, customer will be taken to next page to create a new order
         if (Order == null) {
             new OrderDetails(Cust).setVisible(true);
             this.dispose();
-        } else {
+        }// if order is not null that means there is an existing order so customer will be taken to next page to add more pieces to it 
+        else {
             new OrderDetails(Cust, Order).setVisible(true);
             this.dispose();
         }
@@ -255,10 +258,12 @@ public class ChooseService extends javax.swing.JFrame {
 
     private void ironingPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ironingPanelMouseClicked
         ServiceType = "Ironing";
+        // if order is null that means it wasnt created yet, customer will be taken to next page to create a new order
         if (Order == null) {
             new OrderDetails(Cust).setVisible(true);
             this.dispose();
-        } else {
+        }// if order is not null that means there is an existing order so customer will be taken to next page to add more pieces to it 
+        else {
             new OrderDetails(Cust, Order).setVisible(true);
             this.dispose();
         }
@@ -267,10 +272,12 @@ public class ChooseService extends javax.swing.JFrame {
 
     private void BothPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BothPanelMouseClicked
         ServiceType = "Both";
+        // if order is null that means it wasnt created yet, customer will be taken to next page to create a new order
         if (Order == null) {
             new OrderDetails(Cust).setVisible(true);
             this.dispose();
-        } else {
+        }// if order is not null that means there is an existing order so customer will be taken to next page to add more pieces to it 
+        else {
             new OrderDetails(Cust, Order).setVisible(true);
             this.dispose();
         }

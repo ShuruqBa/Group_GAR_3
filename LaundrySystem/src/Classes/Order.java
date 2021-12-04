@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Classes;
 
 import java.util.*;
 
-/**
- *
- * @author hp
- */
 public final class Order {
 
     private int orderID;
@@ -89,10 +81,6 @@ public final class Order {
 
     public int GenerateOrderID() {
         return 10000 + (int) (Math.random() * 90000);
-    }
-
-    public void deletePiece(int PieceId) {
-        
     }
 
     public String getTypeOfService() {

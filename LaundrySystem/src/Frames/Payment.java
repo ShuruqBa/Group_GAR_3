@@ -24,9 +24,9 @@ public class Payment extends javax.swing.JFrame {
         DileveryMethods.add(PickUp);
 
     }
-    Checkout CheckOut = new Checkout(CurrentOrder);
+   
     public Payment(Order order) {
-        
+      
         initComponents();
         ButtonGroup PaymentMethods = new ButtonGroup();
         PaymentMethods.add(CardPay);
@@ -35,7 +35,13 @@ public class Payment extends javax.swing.JFrame {
         ButtonGroup DileveryMethods = new ButtonGroup();
         DileveryMethods.add(DoorDelivery);
         DileveryMethods.add(PickUp);
-
+        
+        // perform check out processes; 
+        // as in calculating price with tax, total price after chooseing delivery, and so on
+        Checkout CheckOut = new Checkout(order);
+        order.getCustomer().setCheckout(CheckOut);
+        System.out.println(order.getOrderID());
+        
         CurrentOrder = order;
            if (CardPay.isSelected()) {
             CheckOut.setPayMethod("CardPay");
@@ -48,6 +54,9 @@ public class Payment extends javax.swing.JFrame {
         }else if(PickUp.isSelected()){
             CheckOut.setDeliveryMethod("PickUp"); 
         }
+        TotalPrice.setText( CheckOut.CalculateTotalPrice()+ " SR");
+        DeliveryLabel.setText(DeliveryLabel.getText()+" "+CheckOut.getDeliveryPrice()+" SR");
+        TaxLabel.setText(TaxLabel.getText()+" "+(CheckOut.getTax()*100)+"% SR");
        
         
     }
@@ -303,8 +312,9 @@ public class Payment extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaceOrderActionPerformed
+        // whne order is placed, add it to the system using this method
         addToOrder(CurrentOrder);
-      
+        // take user to the next page
         new OrderPlacedPage().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_PlaceOrderActionPerformed
@@ -317,12 +327,11 @@ public class Payment extends javax.swing.JFrame {
     private void DoorDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoorDeliveryActionPerformed
      
         
-        TotalPrice.setText( CheckOut.CalculateTotalPrice()+ " SR");
-        DeliveryLabel.setText(DeliveryLabel.getText()+" "+CheckOut.getDeliveryPrice()+" SR");
-        TaxLabel.setText(TaxLabel.getText()+" "+(CheckOut.getTax()*100)+"% SR");
+        
     }//GEN-LAST:event_DoorDeliveryActionPerformed
 
     private void CardPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CardPayActionPerformed
+        // id the user chose to pay by card, they will be taken to a page to add their card info
         CardInfo cardIn = new CardInfo();
         cardIn.setVisible(true);
         cardIn.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
