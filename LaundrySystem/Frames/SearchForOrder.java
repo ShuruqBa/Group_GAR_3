@@ -80,22 +80,21 @@ public class SearchForOrder extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String Search= this.Search.getText().trim();
+        String search= this.Search.getText().trim();
         boolean flag = true;
-        for (int i = 0; i < Search.length(); i++) {
+        for (int i = 0; i < search.length(); i++) {
            
             // if the user entered the order ID incorrectly error message will be displayed
-            if (!Character.isDigit(Search.charAt(i)) || Search.length()!=5 ) {
+            if (!Character.isDigit(search.charAt(i)) || search.length()!=5 ) {
                   flag = false;
                   JOptionPane.showMessageDialog(null, "The order ID only 5 digits with no letters and symbols!", "Error", JOptionPane.ERROR_MESSAGE); 
                   break;
-            }
-                        
+            }          
         }
         if (flag) {
           
             // search for order by id
-            Order o = searchForOrder(Integer.parseInt(Search));
+            Order o = searchForOrder(Integer.parseInt(search));
             // if order is not null, that means order with this id exists
             if (o != null) {
                 this.dispose();
