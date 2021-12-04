@@ -224,6 +224,7 @@ public class CardInfo extends javax.swing.JFrame {
         String month = Month.getText();
         String year = Year.getText();
         String ccv = CCV.getText();
+        // use this variable to raise flag in case of information invalidity
         boolean pass = true;
 
         // invoke a method that checks if the card number the user entered is valid
@@ -257,7 +258,7 @@ public class CardInfo extends javax.swing.JFrame {
             pass = false;
         }
 
-        // check if ccv is less more than 3
+        // check if ccv is more than 3
         if (ccv.length() > 3) {
             // if the ccv is enterd is more than 3 digitss error message will be displayed to the user
             errMsg.setText("CCV should be 3 digits");
