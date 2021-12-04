@@ -15,27 +15,31 @@ public class Cart extends javax.swing.JFrame {
     public Cart(Order ord) {
         initComponents();
         currentOrd = ord;
+        if (ord == null) {
+            Summary.setText("Cart is empty");
+        } else {
 
-        String summar = "";
-        // this arrayList is used to get all pieces in current order
-        ArrayList<Piece> pieces;
-        String currType;
-        int finalPrice = 0;
+            String summar = "";
+            // this arrayList is used to get all pieces in current order
+            ArrayList<Piece> pieces;
+            String currType;
+            int finalPrice = 0;
 
-        pieces = currentOrd.getPiece();
+            pieces = currentOrd.getPiece();
 
-        // for-loop that iterates over all pieces in the current order and prints their details
-        for (int j = 0; j < pieces.size(); j++) {
-            currType = pieces.get(j).getPieceType();
-            summar += " " + currType + "\t          " + pieces.get(j).getNumberOfPieces()
-                    + "\t              " + (pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces()) + "\n";
+            // for-loop that iterates over all pieces in the current order and prints their details
+            for (int j = 0; j < pieces.size(); j++) {
+                currType = pieces.get(j).getPieceType();
+                summar += " " + currType + "\t          " + pieces.get(j).getNumberOfPieces()
+                        + "\t              " + (pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces()) + "\n";
 
-            finalPrice += pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces();
+                finalPrice += pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces();
+            }
+
+            totalPrice.setText(finalPrice + " SR");
+            Summary.setText(summar);
+
         }
-
-        totalPrice.setText(finalPrice + " SR");
-        Summary.setText(summar); 
-
     }
 
     public Cart(Customer customer, String serviceType, int noOfpcs, Order order) {
@@ -273,6 +277,7 @@ public class Cart extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelOrderActionPerformed
+        
         new OrderCanceled().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CancelOrderActionPerformed
@@ -283,8 +288,10 @@ public class Cart extends javax.swing.JFrame {
     }//GEN-LAST:event_ConfirmOrderActionPerformed
 
     private void AddToOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToOrderActionPerformed
+        // user has more pieces to add to order, so they're taken back to choose service frame
         new ChooseService(Customer, currentOrd).setVisible(true);
         this.dispose();
+
     }//GEN-LAST:event_AddToOrderActionPerformed
 
     /**
