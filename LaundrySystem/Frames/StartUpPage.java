@@ -38,10 +38,10 @@ public class StartUpPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // take user to login page
         this.dispose();
         LaundrySystem system = new LaundrySystem();
-    setLaundrySystem(system);
+        setLaundrySystem(system);
         new LoginFrame().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
