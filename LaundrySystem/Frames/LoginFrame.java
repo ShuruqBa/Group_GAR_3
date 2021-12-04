@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Frames;
 
 import java.awt.Color;
@@ -10,10 +6,6 @@ import java.util.regex.Pattern;
 import Classes.*;
 import java.util.ArrayList;
 
-/**
- *
- * @author Ghali
- */
 public class LoginFrame extends javax.swing.JFrame {
 
     LaundrySystem System;
@@ -188,6 +180,7 @@ public class LoginFrame extends javax.swing.JFrame {
         EmailField.setText("");
     }//GEN-LAST:event_EmailFieldMouseClicked
 
+    // this method checks if email is entered in the correct format
     private boolean isValid(String email) {
 
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."
@@ -228,9 +221,8 @@ public class LoginFrame extends javax.swing.JFrame {
                 emailErrorMsg.setText("Email is not valid!");
             }
         }
-
+        // if the user is an admin, they will be taken to admin page to have access to their functions
         if (EmailField.getText().toLowerCase().startsWith("admin")) {
-            
             new AdminView().setVisible(true);
         }
     }//GEN-LAST:event_LoginActionPerformed
