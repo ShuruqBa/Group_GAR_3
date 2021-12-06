@@ -154,17 +154,6 @@ public class SignUpFrame extends javax.swing.JFrame {
             }
         });
 
-        SignUp.setBackground(new java.awt.Color(102, 100, 139));
-        SignUp.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        SignUp.setForeground(new java.awt.Color(229, 229, 229));
-        SignUp.setText("Create Account");
-        SignUp.setPreferredSize(new java.awt.Dimension(250, 39));
-        SignUp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SignUpActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
@@ -189,25 +178,24 @@ public class SignUpFrame extends javax.swing.JFrame {
                                 .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(Address, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(MainPanelLayout.createSequentialGroup()
-                                    .addGap(13, 13, 13)
                                     .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel5)))
-                                .addGroup(MainPanelLayout.createSequentialGroup()
-                                    .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2)
-                                        .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(41, 41, 41)
-                                    .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel7)
-                                        .addComponent(LastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(MainPanelLayout.createSequentialGroup()
+                                            .addGap(13, 13, 13)
+                                            .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel3)
+                                                .addComponent(jLabel5)))
+                                        .addGroup(MainPanelLayout.createSequentialGroup()
+                                            .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel2)
+                                                .addComponent(FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(41, 41, 41)
+                                            .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel7)
+                                                .addComponent(LastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                             .addComponent(jLabel8))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(SignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,20 +231,37 @@ public class SignUpFrame extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(SignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
+
+        SignUp.setBackground(new java.awt.Color(102, 100, 139));
+        SignUp.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        SignUp.setForeground(new java.awt.Color(229, 229, 229));
+        SignUp.setText("Create Account");
+        SignUp.setPreferredSize(new java.awt.Dimension(250, 39));
+        SignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SignUpActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(SignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(SignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -276,13 +281,11 @@ public class SignUpFrame extends javax.swing.JFrame {
         char[] password = passwordField.getPassword();
         char[] confirmedPass = ConfirmPassField.getPassword();
         
-        // make sure user does not leave the name fields empty
         if (firstName.isEmpty() || lastName.isEmpty()) {
             errorMsg.setText("Please enter your first and last name");
             FirstName.setBackground(new Color(255, 153, 153));
             LastName.setBackground(new Color(255, 153, 153));
         } else {
-            // if the email the user entered is already in the system error message will be displayed
             if (exists(email)) {
                 errorMsg.setText("User with that E-mail already exists");
             } else {
@@ -292,14 +295,10 @@ public class SignUpFrame extends javax.swing.JFrame {
                     errorMsg.setText("Email is not valid!");
                     
                 } else {
-                    // check if phone number is valid, else display error message
                     if (phoneNoValid(phoneNo)) {
-                        // next, check if password is valid and that both passwords match
                         if (passValid(password, confirmedPass)) {
-                            // all entered information are valid, so new customer is created then added to the system 
                             Customer customer = new Customer(PhonNum.getText(), email, firstName, lastName, new String(password), address);
                             system.addCustomer(customer);
-                            // take customer to login page to start using the system
                             new LoginFrame(customer, system).setVisible(true);
                             this.dispose();
                         }
@@ -312,7 +311,6 @@ public class SignUpFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SignUpActionPerformed
     
-    // this method checks for passwords validity
     public boolean passValid(char[] password, char[] confirmedPass) {
         if (password.length < 8) {
             passwordField.setBackground(new Color(255, 153, 153));
@@ -331,7 +329,6 @@ public class SignUpFrame extends javax.swing.JFrame {
         return true;
     }
     
-    // this methos checks for phone number validity
     public boolean phoneNoValid(String PhoneNo) {
         if (PhoneNo.isEmpty()) {
             return false;
@@ -348,7 +345,6 @@ public class SignUpFrame extends javax.swing.JFrame {
         return true;
     }
     
-    // this method checks for passwords validity
     public boolean passwordsMatch(char[] pass1, char[] pass2) {
         // If both passwords dont have the same length, then they're not matching 
         if (pass1.length != pass2.length) {
@@ -363,7 +359,6 @@ public class SignUpFrame extends javax.swing.JFrame {
         return true;
     }
     
-    // this method checks if user with the passed email already exists
     public boolean exists(String email) {
         ArrayList<Customer> customers = system.allCustomers();
         for (int i = 0; i < customers.size(); i++) {
@@ -374,7 +369,6 @@ public class SignUpFrame extends javax.swing.JFrame {
         return false;
     }
     
-    // this method checks if email is in the correct format
     private boolean isValid(String email) {
         
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."

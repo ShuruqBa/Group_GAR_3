@@ -224,55 +224,42 @@ public class CardInfo extends javax.swing.JFrame {
         String month = Month.getText();
         String year = Year.getText();
         String ccv = CCV.getText();
-        // use this variable to raise flag in case of information invalidity
         boolean pass = true;
 
-        // invoke a method that checks if the card number the user entered is valid
         if (!cardValid(cardNo)) {
-            // if card is invalid error message will be displayed to the user
             errMsg.setText("Please, enter a valid card number");
             CardNo.setBackground(new Color(255, 153, 153));
             pass = false;
         }
-        // make sure the user doesnt leave the name field empty
         if (cardHolderName.isEmpty()) {
-            // if name field is left empty error message will be displayed
             errMsg.setText("Please, enter a valid name");
             CardHolderName.setBackground(new Color(255, 153, 153));
             pass = false;
         }
 
-        // invoke a method that checks if the month the user entered is valid
         if (!monthValid(month)) {
-            // if the month is invalid error message will be displayed to the user
             errMsg.setText("Please, enter a valid month");
             Month.setBackground(new Color(255, 153, 153));
             pass = false;
         }
 
-        // invoke a method that checks if the year the user entered is valid
         if (!yearValid(year)) {
-            // if the year is invalid error message will be displayed to the user
             errMsg.setText("Please, enter a valid year");
             Year.setBackground(new Color(255, 153, 153));
             pass = false;
         }
 
-        // check if ccv is more than 3
         if (ccv.length() > 3) {
-            // if the ccv is enterd is more than 3 digitss error message will be displayed to the user
             errMsg.setText("CCV should be 3 digits");
             CCV.setBackground(new Color(255, 153, 153));
             pass = false;
         }
 
-        // if all the information the user entered is correct they will be taken back to payment page
         if (pass) {
             this.dispose();
         }
     }//GEN-LAST:event_ConfirmActionPerformed
 
-    // method to check month validity
     public boolean monthValid(String month) {
         if (month.isEmpty() || month.length() > 2) {
             errMsg.setText("Please, enter a valid month");
@@ -286,8 +273,7 @@ public class CardInfo extends javax.swing.JFrame {
         }
         return true;
     }
-    
-    // method to check year validity
+
     public boolean yearValid(String year) {
         if (year.isEmpty() || year.length() > 2) {
             errMsg.setText("Please, enter a valid month");
@@ -302,7 +288,6 @@ public class CardInfo extends javax.swing.JFrame {
         return true;
     }
 
-    // method to check card number validity
     public boolean cardValid(String cardNo) {
         if (cardNo.isEmpty()) {
             return false;

@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Frames;
 
 import java.awt.Color;
@@ -6,6 +10,10 @@ import java.util.regex.Pattern;
 import Classes.*;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Ghali
+ */
 public class LoginFrame extends javax.swing.JFrame {
 
     LaundrySystem System;
@@ -180,7 +188,6 @@ public class LoginFrame extends javax.swing.JFrame {
         EmailField.setText("");
     }//GEN-LAST:event_EmailFieldMouseClicked
 
-    // this method checks if email is entered in the correct format
     private boolean isValid(String email) {
 
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."
@@ -198,7 +205,6 @@ public class LoginFrame extends javax.swing.JFrame {
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
         emailErrorMsg.setText("");
         passErrorMsg.setText("");
-        
         //get email and password from user
         String email = EmailField.getText();
         String password = passwordField.getText();
@@ -222,13 +228,13 @@ public class LoginFrame extends javax.swing.JFrame {
                 emailErrorMsg.setText("Email is not valid!");
             }
         }
-        // if the user is an admin, they will be taken to admin page to have access to their functions
+
         if (EmailField.getText().toLowerCase().startsWith("admin")) {
+            
             new AdminView().setVisible(true);
         }
     }//GEN-LAST:event_LoginActionPerformed
 
-    // this method checks if user with that email already exists in the system
     public boolean exists(String email) {
         ArrayList<Customer> customers = System.allCustomers();
         for (int i = 0; i < customers.size(); i++) {
@@ -239,7 +245,6 @@ public class LoginFrame extends javax.swing.JFrame {
         return false;
     }
 
-    // find customer by email
     public Customer findCustomer(String email) {
         ArrayList<Customer> customers = System.allCustomers();
         for (int i = 0; i < customers.size(); i++) {
@@ -251,7 +256,7 @@ public class LoginFrame extends javax.swing.JFrame {
     }
 
     private void RegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterMouseClicked
-        // in case user isn't registered in the system, take them to sign up page
+       
         new SignUpFrame().setVisible(true);
     }//GEN-LAST:event_RegisterMouseClicked
 

@@ -15,72 +15,62 @@ public class Cart extends javax.swing.JFrame {
     public Cart(Order ord) {
         initComponents();
         currentOrd = ord;
-        if (ord == null) {
-            Summary.setText("Cart is empty");
-        } else {
 
-            String summar = "";
-            // this arrayList is used to get all pieces in current order
-            ArrayList<Piece> pieces;
-            String currType;
-            int finalPrice = 0;
+        String summar = "";
+        ArrayList<Piece> pieces;
+        String currType;
+        int finalPrice = 0;
 
-            pieces = currentOrd.getPiece();
+        pieces = currentOrd.getPiece();
 
-            // for-loop that iterates over all pieces in the current order and prints their details
-            for (int j = 0; j < pieces.size(); j++) {
-                currType = pieces.get(j).getPieceType();
-                summar += " " + currType + "\t          " + pieces.get(j).getNumberOfPieces()
-                        + "\t              " + (pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces()) + "\n";
+        for (int j = 0; j < pieces.size(); j++) {
+            currType = pieces.get(j).getPieceType();
+            summar += " " + currType + "\t          " + pieces.get(j).getNumberOfPieces()
+                    + "\t              " + (pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces()) + "\n";
 
-                finalPrice += pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces();
-            }
-
-            totalPrice.setText(finalPrice + " SR");
-            Summary.setText(summar);
-
+            finalPrice += pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces();
         }
+
+        totalPrice.setText(finalPrice + " SR");
+        Summary.setText(summar); 
+
     }
 
     public Cart(Customer customer, String serviceType, int noOfpcs, Order order) {
         initComponents();
         Customer = customer;
+        ArrayList<Order> orders = customer.getOrders();
         Piece currentPc;
         int finalPrice = 0;
 
         if (serviceType != null) {
-            // if the current order is still not created, create new order
             if (order == null) {
                 currentOrd = new Order(customer, "Ongoing", serviceType);
-                // add order to list of customer's orders
                 Customer.makeOrder(currentOrd);
                 currentOrd.setCustomer(customer);
-            } // if order is not null that means more pieces are being added to current order
-            else {
+            } else {
                 currentOrd = order;
             }
-            // create new piece then add it to list of pieces in the order
             currentPc = new Piece(serviceType, noOfpcs);
             currentOrd.setPiece(currentPc);
 
             String summar = "";
-            // this arrayList is used to get all pieces in current order
             ArrayList<Piece> pieces;
             String currType;
-            pieces = currentOrd.getPiece();
-            // for-loop that iterates over all pieces in the current order and prints their details
-            for (int j = 0; j < pieces.size(); j++) {
-                currType = pieces.get(j).getPieceType();
-                summar += " " + currType + "\t          " + pieces.get(j).getNumberOfPieces()
-                        + "\t              " + (pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces()) + "\n";
+            for (int i = 0; i < orders.size(); i++) {
+                pieces = orders.get(i).getPiece();
 
-                finalPrice += pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces();
+                for (int j = 0; j < pieces.size(); j++) {
+                    currType = pieces.get(j).getPieceType();
+                    summar += " " + currType + "\t          " + pieces.get(j).getNumberOfPieces()
+                            + "\t              " + (pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces()) + "\n";
+
+                    finalPrice += pieces.get(j).getPrice(currType) * pieces.get(j).getNumberOfPieces();
+                }
             }
             totalPrice.setText(finalPrice + " SR");
-            // set the calculated price of all pieces in the order 
             currentOrd.setTotalPrice(finalPrice);
 
-            // print the order summary to the user
             Summary.setText(summar);
         }
     }
@@ -277,7 +267,6 @@ public class Cart extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelOrderActionPerformed
-        
         new OrderCanceled().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CancelOrderActionPerformed
@@ -288,10 +277,8 @@ public class Cart extends javax.swing.JFrame {
     }//GEN-LAST:event_ConfirmOrderActionPerformed
 
     private void AddToOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToOrderActionPerformed
-        // user has more pieces to add to order, so they're taken back to choose service frame
         new ChooseService(Customer, currentOrd).setVisible(true);
         this.dispose();
-
     }//GEN-LAST:event_AddToOrderActionPerformed
 
     /**

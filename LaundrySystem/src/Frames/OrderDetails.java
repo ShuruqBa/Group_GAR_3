@@ -11,19 +11,15 @@ public class OrderDetails extends javax.swing.JFrame {
 
     public OrderDetails() {
         initComponents();
-        // use the static field ServiceType in chooseService frame to get the type of service the customer chose
         serviceType = ChooseService.ServiceType;
         if (serviceType != null) {
-            // if the user chose washing only the washing panel will be visible to them 
             if (serviceType.equalsIgnoreCase("washing")) {
                 IroningPanel.setVisible(false);
                 BothPanel.setVisible(false);
-            }// if the user chose ironing only the ironing panel will be visible to them
-            else if (serviceType.equalsIgnoreCase("ironing")) {
+            } else if (serviceType.equalsIgnoreCase("ironing")) {
                 CleaningPanel.setVisible(false);
                 BothPanel.setVisible(false);
-            }// if the user chose both only both panel will be visible to them 
-            else if (serviceType.equalsIgnoreCase("both")) {
+            } else if (serviceType.equalsIgnoreCase("both")) {
                 CleaningPanel.setVisible(false);
                 IroningPanel.setVisible(false);
             }
@@ -409,32 +405,27 @@ public class OrderDetails extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cleaningPcsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cleaningPcsStateChanged
-        // get the number of pieces the user chose then calculate the price
         noOfPcs = (int) cleaningPcs.getValue();
         cleanPrice.setText((noOfPcs * 30) + " SR");
     }//GEN-LAST:event_cleaningPcsStateChanged
 
     private void ironingPcsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ironingPcsStateChanged
-        // get the number of pieces the user chose then calculate the price
         noOfPcs = (int) ironingPcs.getValue();
         ironPrice.setText((noOfPcs * 20) + " SR");
     }//GEN-LAST:event_ironingPcsStateChanged
 
     private void bothPcsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_bothPcsStateChanged
-        // get the number of pieces the user chose then calculate the price
         noOfPcs = (int) bothPcs.getValue();
         bothPrice.setText((noOfPcs * 50) + " SR");
     }//GEN-LAST:event_bothPcsStateChanged
 
     private void BackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMouseClicked
-        // take user to the previous page
         new ChooseService(customer).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackMouseClicked
 
     private void ContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinueActionPerformed
-        // after specifying number of pieces and the service type,
-        // user is taken to next page to continue ordering procedures
+        
         new Cart(customer, serviceType, noOfPcs, Order).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ContinueActionPerformed

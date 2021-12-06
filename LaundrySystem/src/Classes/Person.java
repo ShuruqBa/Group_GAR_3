@@ -1,6 +1,14 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Classes;
 
+/**
+ *
+ * @author hp
+ */
 public class Person {
 
     private String phoneNumber;
@@ -55,6 +63,10 @@ public class Person {
 
     public void setPassword(String passWord) {
         this.passWord = passWord;
+    }
+
+    public void creatAccount() {
+
     }
 
 }

@@ -1,5 +1,9 @@
 package Classes;
 
+/**
+ *
+ * @author hp
+ */
 public class Checkout {
 
     private String payMethod;
@@ -9,12 +13,10 @@ public class Checkout {
     private String deliveryMethod;
     private double deliveryPrice=10;
      private  double totalPrice;
-    
     // get the Delivery Price
     public double getDeliveryPrice() {
         return deliveryPrice;
     }
-    
     // this method will calculate the total price with the tax and the delivery price
     public double CalculateTotalPrice() {
        totalPrice= order.getTotalPrice();
@@ -37,13 +39,15 @@ public class Checkout {
     }
     // checkout object
     public Checkout(Order Order) {
-        this.order=Order; 
+        this.order=Order;
+      
+      
     }
     // return Payment Method
     public String getPayMethod() {
         return payMethod;
     }
-    // get discount
+    // git discount
     public String getDiscound() {
         return discound;
     }
@@ -72,6 +76,7 @@ public class Checkout {
         this.tax = tax;
     }
 
+    
     public double getTotalPrice(){
         return totalPrice;
     }

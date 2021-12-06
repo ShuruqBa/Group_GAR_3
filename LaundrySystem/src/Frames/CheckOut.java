@@ -13,7 +13,6 @@ public class CheckOut extends javax.swing.JFrame {
     public CheckOut(Order order) {
         initComponents();
         CurrentOrder = order;
-        // display the customers address information on the jFrame
         AddresDetails.setText(CurrentOrder.getCustomer().getFirstName() + " " + CurrentOrder.getCustomer().getLastName());
         AddresDetails.setText(AddresDetails.getText() + "\n" + CurrentOrder.getCustomer().getPhoneNumber());
         AddresDetails.setText(AddresDetails.getText() + "\n" + CurrentOrder.getCustomer().getAddress());
@@ -174,13 +173,11 @@ public class CheckOut extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMouseClicked
-        // take customer to the prvious page
         new Cart(CurrentOrder).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackMouseClicked
 
     private void PayNowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PayNowActionPerformed
-        // take customer to next page
         this.dispose();
         new Payment(CurrentOrder).setVisible(true);
     }//GEN-LAST:event_PayNowActionPerformed
